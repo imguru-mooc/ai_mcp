@@ -1,0 +1,156 @@
+{
+  "name": "example_1",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getAllPeople"
+      },
+      "id": "4cc5d750-7301-4c74-9740-7befe579a43c",
+      "name": "Customer Datastore",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "position": [
+        144,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "**Get fake sample data**",
+        "height": 300,
+        "width": 220
+      },
+      "id": "144248a2-e6eb-473d-83e5-ce8d2e61a176",
+      "name": "Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        -32
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "**Extract data and prepare it for use in the next node**",
+        "height": 300,
+        "width": 220
+      },
+      "id": "4b63e1ae-1056-44ca-bffc-c8485fce6e6d",
+      "name": "Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        304,
+        -32
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "fe34523e-85f6-4c8b-8277-7898d25b80da",
+      "name": "When clicking \"Test Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -80,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a3a94142-e950-4300-afbb-a916266f98ba",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "8938eab4-1468-4c5b-97ca-7b4b4731ebbf",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "624dba09-f2e7-48e8-a424-22eb2dce336b",
+              "name": "email",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c0fbd777-630a-49cd-9b1c-8884db7a4fc8",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        368,
+        112
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "content": "## 첫번째 쉬운 워크플로우\n---\n\n- 트리거\n- 데이터베이스\n- exit 필드\n",
+        "width": 288
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        -144
+      ],
+      "id": "b49caeda-e75b-4acc-8af7-bdb26e5f6f9d",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Customer Datastore": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Customer Datastore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2f024529-ce3c-4d00-989f-5e7f4ceea766",
+  "meta": {
+    "instanceId": "66235ae0eb71c273aca0cc5acf3ccdb21565024bfcec4845400c7da6a7702aec"
+  },
+  "id": "gZcncCBxOsUdWUfJ",
+  "tags": [
+    {
+      "name": "Datastore",
+      "id": "MqAxXU9zzesEtXD5",
+      "createdAt": "2025-08-08T01:31:17.384Z",
+      "updatedAt": "2025-08-08T01:31:17.384Z"
+    },
+    {
+      "name": "Edit Field",
+      "id": "8IHe9ylFSEUP0tFE",
+      "createdAt": "2025-08-08T01:31:30.487Z",
+      "updatedAt": "2025-08-08T01:31:30.487Z"
+    }
+  ]
+}
